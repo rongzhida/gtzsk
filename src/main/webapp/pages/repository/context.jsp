@@ -36,41 +36,18 @@
 			$.parser.parse();
 			
 			var querytype="${querytype}";
-			var newssrc="${ctx}/repository/news?searchword=";
-			var docssrc="${ctx}/repository/docs?page=1&pages=0&count=0&searchword=";
-			var imagessrc="${ctx}/repository/images?page=1&pages=0&count=0&searchword=";
-			var lawssrc="${ctx}/repository/laws?searchword=";
-			var fgksrc="${ctx}/repository/fgk?searchword=";
+			var newssrc="${ctx}/repository/news?searchword=${searchword}";
+			var docssrc="${ctx}/repository/docs?page=1&pages=0&count=0&searchword=${searchword}";
+			var imagessrc="${ctx}/repository/images?page=1&pages=0&count=0&searchword=${searchword}";
+			var fgksrc="${ctx}/repository/fgk?searchword=${searchword}";
 			if(querytype=='news'){
 				$('#tt').tabs('select', 0);	
-				newssrc=newssrc+"${searchword}";
-				lawssrc=lawssrc+"国土";
-			}
-			else if(querytype=='docs'){
+			} else if(querytype=='docs'){
 				$('#tt').tabs('select', 1);
-				docssrc=docssrc+"${searchword}";
-				lawssrc=lawssrc+"国土";
-			}
-			else if(querytype=='images'){				
+			} else if(querytype=='images'){				
 				$('#tt').tabs('select', 2);
-				imagessrc=imagessrc+"${searchword}";
-				lawssrc=lawssrc+"国土";
-			}
-			else if(querytype=='laws'){
+			} else if(querytype=='fgk'){
 				$('#tt').tabs('select', 3);
-				var searchword="${searchword}";
-				if(searchword==''){
-					lawssrc=lawssrc+"国土";
-				}else{
-					lawssrc=lawssrc+"${searchword}";
-				}
-								
-			}
-			else if(querytype=='fgk'){
-				$('#tt').tabs('select', 3);
-				var searchword="${searchword}";
-				fgksrc=fgksrc+"${searchword}";
-								
 			}
 			$('#news').attr("src",newssrc);
 			$('#docs').attr("src",docssrc);

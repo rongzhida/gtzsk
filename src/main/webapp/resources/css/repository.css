@@ -1,0 +1,153 @@
+
+
+.index_logo_div_portal {
+	margin-top: 80px;
+	text-align: center;
+}
+.index_tab_portal {
+	width: 400px;
+	border: 0px;
+}
+.form_input {
+	margin-left: 30px;
+	width:350px;
+	height:35px;
+	line-height:35px;
+	font-size:18px;
+	border:1px solid #31AE8E;
+}
+.index_imgbutton1 {
+	background-image:url(../images/index_btn1.gif);
+	background-repeat: no-repeat;
+	width: 90px;
+	height: 38px;
+	border: 0px;
+	margin: 20px 10px 20px 10px;
+	cursor: pointer;
+}
+#querytype {
+	margin: auto;
+	text-align: center;
+	height: 30px;
+}
+#querytype span {
+	font-size: 14px;
+	padding-right: 5px;
+	line-height: 30px;
+	top: -2px;
+	position: relative;
+}
+.index_imgbutton2 {
+	width: 60px;
+	border: 0px;
+	margin: 20px 10px 20px 10px;
+	cursor: pointer;
+}
+#searchform {
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+#button {
+	height: 26px;
+	width: 80px;
+	background-color: #D2EEFF;
+	border: 1px solid #7DB5DE;
+	border-collapse: collapse;
+	font-size: 18px;
+	margin-left: 30px;
+}
+#pages {
+	text-align: center;
+	padding-bottom: 10px;
+	width: 860px;
+	height: 50px;
+	margin: auto;
+}
+#docs {
+	width: 860px;
+	margin: auto;
+}
+#images{
+	margin-top:10px;									
+}
+#imagelist{
+	width: 860px;
+	margin: auto;
+}	
+img{						
+	cursor: pointer;
+}	
+span{
+	font-size:12px;
+}
+li {
+	cursor: pointer;
+	margin-top: 5px;
+}
+a {
+	margin-top: 10px;
+	margin-right: 8px;
+	float: left;
+	font-size: 13px;
+	width: 50px;
+	height: 20px;
+	display: block;
+}
+a:hover {
+	text-decoration: none;
+}
+.blue {
+	border: 1px solid #9FB9E4;
+	color: #666666;
+}
+.red {
+	color: #333333;
+	font-weight: bold;
+	disabled: disabled;
+}
+.blue:hover {
+	background-color: #E3EFF8;
+	color: red;
+}
+.name {
+	font-size: 15px;
+	font-weight: 600;
+}
+.name:hover {
+	color: red;
+	cursor: pointer;
+}
+
+.subcontext {
+	padding-top: 5px;
+}
+
+.subcontext div {
+	padding-top: 5px;
+}
+
+.pzyj {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: break-word;
+	height: 16px;
+	width: 750px;
+	line-height: 16px;
+	font-size: 13px;
+}
+.time {
+	margin-bottom: 10px;
+	color: green;
+}
+.summary {
+	text-indent: 20px;
+}
+.redfont {
+	color: #FF0000;
+	padding-right: 20px;
+}
+#message, #count {
+	font-size: 14px;
+}

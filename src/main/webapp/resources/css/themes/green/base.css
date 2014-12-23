@@ -1,0 +1,396 @@
+html {
+	height:100%;
+	width:100%;
+	padding: 0;
+	margin: 0; 
+	border: 0; 
+	background: #fff; /*#dfe8f6*/
+	font-size: 12px; 
+	font-family: "微软雅黑","宋体"
+	/*font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;*/
+	/*font-family: Verdana, Helvetica, Sans-Serif;*/
+	color: #333;
+	/* hide overflow:hidden from IE5/Mac */ 
+	/* \*/ 
+	overflow: hidden; 
+	/* */ 
+}
+
+body {
+	height:100%;
+	width:100%;
+	overflow: hidden; 
+	padding: 0; 
+	margin: 0; 
+	border: 0;
+}
+
+img {
+	border:0;
+}
+
+.welcome {
+	position:absolute; 
+	top:50%; 
+	left:50%; 
+	margin-top:-120px; 
+	margin-left:-300px; 
+	width:600px; 
+	height:240px;
+	background-image:url(images/welcome.jpg)
+}
+
+.header-warp {
+    position: relative;
+    height: 88px;
+    background: url(images/head_bg.gif) repeat-x;
+    border-bottom: #27BF86 2px solid;
+}
+
+
+.login-info {
+    position: absolute;
+    left: 400px;
+    top: 5px;
+    color: white;
+}
+
+.login-info td {
+    color: white;
+    font-size: 12px
+}
+
+.operate-bar {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+}
+
+.operate-bar a,.operate-bar a:visited {
+    color: white;
+}
+
+.system-name {
+    position: absolute;
+    top: 45px;
+    left: 400px;
+}
+
+.dialog-form-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.formtable {
+    border: 0px solid green;
+    font-size: 13px;
+    color: #666;
+    border: 0px;
+    border-collapse: collapse;
+}
+
+.formtable .title {
+    padding: 2px;
+    text-align: right;
+    line-height: 25px;
+    vertical-align: top;
+    width: 80px;
+    font-weight: bold;
+}
+
+.formtable input {
+    width: 130px;
+}
+
+.formtable select {
+    width: 130px;
+}
+
+.formtable .colspan {
+    width: 343px;
+}
+
+/*閬僵 寮�*/
+#loading-mask{
+	position:absolute;
+	left:0;
+	top:0;
+    width:100%;
+    height:100%;
+    z-index:20000;
+    background-color:white;
+}
+#loading{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-35px;
+    margin-left:-35px;
+    padding:0;
+    width:70px;
+    height:70px;
+    z-index:20001;
+    background: white url("images/loading.gif") 11px 11px no-repeat;
+    border-radius:5px;
+}
+#loading .loading-text{
+	color: #555;
+	font: bold 13px tahoma,arial,helvetica;
+	padding-top: 21px;
+	margin-left: 60px;
+}
+/*閬僵 缁撴潫*/
+
+/*閾炬帴 寮�*/
+a{
+    /*color: #034af3;*/
+    color: #000000;
+    text-decoration: none;
+}
+a:visited{
+    /*color: #505abc;*/
+   	color: #000000;
+}
+a:hover{
+    /*color: #1d60ff;*/
+    color: #000000;
+    /*text-decoration: underline;*/
+}
+a:active{
+    /*color: #12eb87;*/
+    color: #000000;
+}
+a.external 
+{
+    color: #000000;
+	padding-right: 18px;
+	background: transparent url(images/external.gif) no-repeat center right;
+}
+a.popup 
+{
+    color: #000000;
+	padding-right: 18px;
+    background: transparent url(images/popup.gif) no-repeat center right;
+}
+/*閾炬帴 缁撴潫*/
+
+/*琛ㄥ崟 寮�*/
+.property {
+	display:inline-block;
+	margin:5px 0 0 5px;
+	padding:0;
+	white-space:nowrap;
+}
+.property .label {
+	display:inline-block;
+	white-space:nowrap;
+}
+.property .block {
+	display:block;
+}
+.property input.input {
+	border:1px solid #A4BED4;
+	font-size: 12px;
+    height: 20px;/*IE涓嬩负22*/
+    line-height: 20px;/*IE涓嬩负22*/
+    padding: 0;
+	width:98px;
+}
+.property select.input {
+	border:1px solid #A4BED4;
+	font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0;
+	width:100px;
+}
+.property span {
+	color:red;
+    font-family:'宋体';
+    padding:0  0px;
+}
+/*表单结束*/
+
+/*头部开始*/
+.head {
+	background:url(images/head_bg.gif) repeat-x;
+	height:88px;
+	color: white;
+}
+.logo {
+	float:left;
+	height:88px;
+}
+.logo a {
+	display:inline-block;
+	float: left;
+}
+.logo a.logo {
+	background:url(images/logo.gif) no-repeat;
+	height:88px;
+	width:401px;
+}
+/* .logo a.title {
+	background:url(images/title.gif) no-repeat;
+	height:68px;
+	width:294px;
+} */
+.tips {
+	/* background:url(images/tips_bg.gif) repeat-x; */
+	float: left;
+	height:26px;
+	list-style-type:none;
+	margin:0 5px 0 0;
+	padding:0;
+}
+.tips2 {
+	float: right;
+	height:26px;
+	list-style-type:none;
+	margin:0 5px 0 0;
+	padding:0;
+}
+.tips li {
+	display:inline-block;
+	float:left;
+	margin:0;
+	padding:0;
+	position:relative;
+}
+/* .tips li.left {
+	background:url(images/tips_left.gif) repeat-x;
+	height:27px;
+	width:39px;
+}
+.tips li.right {
+	float:right;
+	height:27px;
+	width:31px;
+} */
+.tips li span {
+	display:inline-block;
+	height:25px;
+	line-height:25px;
+	margin:0;
+	padding:0 4px;
+}
+.tips li a {
+	text-decoration: none;
+}
+.tips li a:visited {
+	
+}
+.tips li a:hover {
+	text-decoration: underline;
+}
+/*澶撮儴缁撴潫*/
+
+/* 浣跨敤messager.progress 鍋歭oading鏃剁殑鏍峰紡澶勭悊 >>*/
+.progressbar{
+	border:0px;
+	height: 40px;
+}
+.progressbar .progressbar-value {
+	visibility: hidden;
+	display: none;
+}
+.progressbar .progressbar-text {
+	
+}
+.progressbar .progressbar-text .loading {
+	background: url('images/loading_blue.gif') no-repeat;
+	height: 40px;
+	width: 168px;
+	margin: auto;
+}
+/*loading 缁撴潫*/
+
+
+
+.dialog-form {
+	margin: 0;
+	padding: 0px 5px;
+}
+
+
+.label {
+	font-size: 12px;
+	padding: 2px;
+	text-align: right;
+	line-height: 15px;
+	vertical-align: top;
+}
+
+.tabletree {
+    border: 1px solid #7ac56f;
+    width: 100%;
+    height: 100%;
+}
+
+.required {
+    background: url('resources/images/required.png') no-repeat 35px 6px;
+}
+
+.icon-password {
+    background: url('../../../images/password.png') no-repeat;
+}
+
+.icon-logout {
+    background: url('../../../images/logout.png') no-repeat;
+}
+
+.icon-home {
+    background: url('../../../images/home.png') no-repeat;
+}
+
+.icon-welcome {
+    background: url('../../../images/welcome.png') no-repeat;
+}
+
+.icon-management {
+    background: url('../../../images/add_server.png') no-repeat;
+}
+
+.icon-source {
+    background: url('../../../images/source.png') no-repeat;
+}
+
+.icon-privilege {
+    background: url('../../../images/privilege.png') no-repeat;
+}
+
+.icon-organization {
+    background: url('../../../images/org.png') no-repeat;
+}
+
+.icon-role {
+    background: url('../../../images/role.png') no-repeat;
+}
+
+.icon-user {
+    background: url('../../../images/user.png') no-repeat;
+}
+
+.icon-system {
+    background: url('../../../images/management.png') no-repeat;
+}
+
+.icon-log {
+    background: url('../../../images/log.png') no-repeat;
+}
+
+.icon-company {
+    background: url('../../../images/company.png') no-repeat;
+}
+
+.icon-department {
+    background: url('../../../images/department.png') no-repeat;
+}
+.icon-history{
+    background: url('../../../images/history.png') no-repeat;
+}

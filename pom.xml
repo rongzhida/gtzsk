@@ -19,50 +19,31 @@
 	</properties>
 
 	<repositories>
-		<repository>
-			<id>public</id>
-			<url>${nexus.server}/nexus/content/repositories/public</url>
-		</repository>
-		<repository>
-			<id>releases</id>
-			<url>${nexus.server}/nexus/content/repositories/releases</url>
-		</repository>
-		<repository>
-			<id>snapshots</id>
-			<url>${nexus.server}/nexus/content/repositories/snapshots</url>
-		</repository>
-		<repository>
-			<id>thirdparty</id>
-			<url>${nexus.server}/nexus/content/repositories/thirdparty</url>
-		</repository>
-		<repository>
-			<id>central</id>
-			<url>http://repo1.maven.org/maven2</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>public</id>
-			<url>${nexus.server}/nexus/content/repositories/public</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>releases</id>
-			<url>${nexus.server}/nexus/content/repositories/releases</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>snapshots</id>
-			<url>${nexus.server}/nexus/content/repositories/snapshots</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>thirdparty</id>
-			<url>${nexus.server}/nexus/content/repositories/thirdparty</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>central</id>
-			<url>http://repo1.maven.org/maven2</url>
-		</pluginRepository>
-	</pluginRepositories>
+        <repository>
+            <id>MavenRepo1</id>
+            <name>Maven Central OSS</name>
+            <url>https://oss.sonatype.org/content/repositories/central</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>springsource-releases</id>
+            <name>SpringSource Release Proxy</name>
+            <url>https://oss.sonatype.org/content/repositories/springsource-releases</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 	<build>
 		<plugins>
@@ -93,12 +74,15 @@
 	</build>
 
 	<dependencies>
+	
 		<dependency>
-			<groupId>ojdbc</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>14</version>
-			<scope>provided</scope>
-		</dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>14</version>
+            <classifier></classifier>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ojdbc14.jar</systemPath>
+        </dependency>
 
 		<!-- Spring framework start -->
 		<dependency>

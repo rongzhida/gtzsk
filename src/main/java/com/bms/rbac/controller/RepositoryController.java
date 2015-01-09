@@ -5,9 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +29,6 @@ import cn.gov.laho.gzfgoa.flow.webservice.ProcInfoServicePortType;
 
 import com.bms.rbac.management.domain.FGKBean;
 import com.bms.rbac.management.domain.Repository;
-import com.bms.rbac.management.domain.User;
 import com.bms.rbac.management.persistence.option.RepositorySearchOption;
 
 /**
@@ -140,11 +137,10 @@ public class RepositoryController {
 		int pages = searchOption.getPages();
 		int count = searchOption.getCount();
 		if (pages == 0) {
-			User user = (User) request.getSession().getAttribute("user");
-			if (user == null) {
+			String username = getSessionUsername(request);
+			if (username == null || username.length() == 0) {
 				pages = 0;
 			} else {
-				String username = user.getUserName();
 				searchOption.setUsername(username);
 				count = getDocTotal(searchOption, username);
 				if (count % 10 == 0) {
@@ -182,11 +178,11 @@ public class RepositoryController {
 	
 	private List<Repository> pageService(RepositorySearchOption searchOption, HttpServletRequest request) {
 		List<Repository> result = new ArrayList<Repository>();
-		User user = (User) request.getSession().getAttribute("user");
-		if(user == null){
+		String username = getSessionUsername(request);
+		if (username == null || username.length() == 0) {
 			return result;
 		}
-		ArrayOfProcInfoBean arrayOfProcInfoBean = this.fgoaProcInfoService.queryFlow(searchOption.getSearchword(), -1, -1, "", "", "", "", "", "", "", "", "", "", user.getUserName(), 10, searchOption.getPage());
+		ArrayOfProcInfoBean arrayOfProcInfoBean = this.fgoaProcInfoService.queryFlow(searchOption.getSearchword(), -1, -1, "", "", "", "", "", "", "", "", "", "", username, 10, searchOption.getPage());
 		List<ProcInfoBean> procInfoBean = arrayOfProcInfoBean.getProcInfoBean();
 		for (ProcInfoBean bean : procInfoBean) {
 			Repository repository = new Repository();
@@ -352,6 +348,10 @@ public class RepositoryController {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	private String getSessionUsername(HttpServletRequest request) {
+		return request.getHeader("oam_userid");
 	}
 
 }

@@ -96,7 +96,7 @@ public class RepositoryController {
 				pages = (int) (count / 10 + 1);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("查询法规库数据失败，检查服务连接。");
 		}
 
 		view.addObject("searchword", searchOption.getSearchword());
@@ -124,14 +124,13 @@ public class RepositoryController {
 				beans.add(bean);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("查询法规库列表失败，检查服务连接。");
 		}
 		return beans;
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/docs")
-	public ModelAndView docs(RepositorySearchOption searchOption, HttpServletRequest request)
-			throws ClassNotFoundException, SQLException {
+	public ModelAndView docs(RepositorySearchOption searchOption, HttpServletRequest request) {
 		ModelMap map = new ModelMap();
 		ModelAndView view = new ModelAndView("repository/docs", map);
 		int pages = searchOption.getPages();
@@ -159,8 +158,13 @@ public class RepositoryController {
 	
 	private int getDocTotal(RepositorySearchOption searchOption,String username) {
 		int total = 0;
-		//total = repositoryService.count(searchOption);
-		total = fgoaProcInfoService.queryFlowNum(searchOption.getSearchword(), -1, -1, "", "", "", "", "", "", "", "", "", "", username);
+		try {
+			//total = repositoryService.count(searchOption);
+			total = fgoaProcInfoService.queryFlowNum(searchOption.getSearchword(), -1, -1, "", "", "", "", "", "", "", "", "", "", username);
+		} catch (Exception e) {
+			System.out.println("查询公文总数失败，检查服务连接。");
+		}
+		
 		return total;
 	}
 
@@ -182,28 +186,33 @@ public class RepositoryController {
 		if (username == null || username.length() == 0) {
 			return result;
 		}
-		ArrayOfProcInfoBean arrayOfProcInfoBean = this.fgoaProcInfoService.queryFlow(searchOption.getSearchword(), -1, -1, "", "", "", "", "", "", "", "", "", "", username, 10, searchOption.getPage());
-		List<ProcInfoBean> procInfoBean = arrayOfProcInfoBean.getProcInfoBean();
-		for (ProcInfoBean bean : procInfoBean) {
-			Repository repository = new Repository();
-			repository.setName(bean.getProcName().getValue());
-			String pzyj = "";
-			JAXBElement<String> flowLbyj = bean.getFlowLbyj();
-			if(flowLbyj != null && flowLbyj.getValue() != null) {
-				pzyj = flowLbyj.getValue();
+		try {
+			ArrayOfProcInfoBean arrayOfProcInfoBean = this.fgoaProcInfoService.queryFlow(searchOption.getSearchword(), -1, -1, "", "", "", "", "", "", "", "", "", "", username, 10, searchOption.getPage());
+			List<ProcInfoBean> procInfoBean = arrayOfProcInfoBean.getProcInfoBean();
+			for (ProcInfoBean bean : procInfoBean) {
+				Repository repository = new Repository();
+				repository.setName(bean.getProcName().getValue());
+				String pzyj = "";
+				JAXBElement<String> flowLbyj = bean.getFlowLbyj();
+				if(flowLbyj != null && flowLbyj.getValue() != null) {
+					pzyj = flowLbyj.getValue();
+				}
+				repository.setPzyj(pzyj);
+				repository.setShowdate(bean.getReceiveDataStr().getValue());
+				//----
+				repository.setId(bean.getId());
+				repository.setActId(bean.getActId().toString());
+				repository.setDsmId(bean.getDsmId().toString());
+				repository.setFormId(bean.getFormId().toString());
+				repository.setProcId(bean.getProcId().toString());
+				repository.setTypeId(bean.getTypeId().toString());
+				repository.setWorkItemId(bean.getWorkItemId().toString());
+				result.add(repository);
 			}
-			repository.setPzyj(pzyj);
-			repository.setShowdate(bean.getReceiveDataStr().getValue());
-			//----
-			repository.setId(bean.getId());
-			repository.setActId(bean.getActId().toString());
-			repository.setDsmId(bean.getDsmId().toString());
-			repository.setFormId(bean.getFormId().toString());
-			repository.setProcId(bean.getProcId().toString());
-			repository.setTypeId(bean.getTypeId().toString());
-			repository.setWorkItemId(bean.getWorkItemId().toString());
-			result.add(repository);
+		} catch (Exception e) {
+			System.out.println("查询公文列表失败，检查服务连接。");
 		}
+		
 		return result;
 	}
 	
@@ -213,7 +222,7 @@ public class RepositoryController {
 		try {
 			return getImages(page, searchword, pages);
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			System.out.println("查询图片列表失败，检查数据库连接。");
 			return new ArrayList<Object>();
 		}
 	}
@@ -254,6 +263,7 @@ public class RepositoryController {
 				url = rs.getString(1);
 			}
 		} catch (Exception e) {
+			System.out.println("查询公文路径失败，检查数据库连接。");
 		} 
 		return url;
 	}
@@ -283,7 +293,7 @@ public class RepositoryController {
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("查询图片总数失败，检查数据库连接。");
 		} finally {
 			try {
 				if(statement != null) {
@@ -335,7 +345,7 @@ public class RepositoryController {
 				}
 
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				System.out.println("查询图片数据失败，检查数据库连接。");
 			} finally {
 				if (statement != null) {
 					statement.close();
@@ -345,7 +355,7 @@ public class RepositoryController {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		return result;
 	}

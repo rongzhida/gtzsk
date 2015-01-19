@@ -11,6 +11,5 @@
 		<persistent-store-type>replicated</persistent-store-type>
 		<sharing-enabled>true</sharing-enabled>
 	</session-descriptor>
-    <weblogic-version>10.3.6</weblogic-version>
 
 </weblogic-web-app>

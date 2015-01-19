@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <property name="java-output-path" value="/gtzsk/target/classes"/>
-        <property name="context-root" value="gtzsk-ear-BETA-V1.0-RC01"/>
+        <property name="context-root" value="gtzsk"/>
     </wb-module>
 </project-modules>

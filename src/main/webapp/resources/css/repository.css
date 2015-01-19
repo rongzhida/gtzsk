@@ -16,15 +16,58 @@
 	font-size:18px;
 	border:1px solid #31AE8E;
 }
-.index_imgbutton1 {
+.index_imgbutton {
 	background-image:url(../images/index_btn1.gif);
 	background-repeat: no-repeat;
 	width: 90px;
 	height: 38px;
 	border: 0px;
+	margin: 0px 10px 20px 10px;
+	cursor: pointer;
+}
+.index_imgbutton1 {
+	background-image:url(../images/index_btn1.gif);
+	background-repeat: no-repeat;
+	height: 38px;
+	border: 0px;
 	margin: 20px 10px 20px 10px;
 	cursor: pointer;
 }
+
+/* 内容 */
+.contextMain {
+	width: 960px;
+	margin: auto;
+	border: 1px solid #31AE8E;
+}
+
+.contextSearch {
+	height: 30px;
+	vertical-align: middle;
+	padding: 5px;
+}
+
+.contextImages {
+}
+
+.contextCount {
+	width: 960px;
+	height: 30px;
+}
+
+.contextPages {
+	width: 960px;
+	height: 50px;
+}
+
+.itemImage {
+	margin: 10px;
+	width: 210px;
+	height: 150px;
+	float: left;
+	text-align: center;
+}
+
 #querytype {
 	margin: auto;
 	text-align: center;
@@ -44,6 +87,7 @@
 	cursor: pointer;
 }
 #searchform {
+	margin: auto;
 	text-align: center;
 	margin-bottom: 20px;
 	margin-top: 20px;
@@ -57,24 +101,13 @@
 	font-size: 18px;
 	margin-left: 30px;
 }
-#pages {
-	text-align: center;
-	padding-bottom: 10px;
-	width: 860px;
-	height: 50px;
-	margin: auto;
-}
+
 #docs {
 	width: 860px;
+	min-height:500px;
 	margin: auto;
 }
-#images{
-	margin-top:10px;									
-}
-#imagelist{
-	width: 860px;
-	margin: auto;
-}	
+	
 img{						
 	cursor: pointer;
 }	
@@ -150,4 +183,8 @@ a:hover {
 }
 #message, #count {
 	font-size: 14px;
+}
+
+#pages a {
+	text-align: center;
 }

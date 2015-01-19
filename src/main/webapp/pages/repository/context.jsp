@@ -4,10 +4,8 @@
 <html>
 	<head>
 		<%@ include file="../commons/header.jsp"%>
-		<title></title>
-		<style type="text/css">
-		
-		</style>
+		<title>知识库</title>
+		<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/repository.css">
 	</head>
 	<body class="easyui-layout" style="visibility:hidden;">
 		<div data-options="region:'center',border:false">
@@ -40,6 +38,7 @@
 			var docssrc="${ctx}/repository/docs?page=1&pages=0&count=0&searchword=${searchword}";
 			var imagessrc="${ctx}/repository/images?page=1&pages=0&count=0&searchword=${searchword}";
 			var fgksrc="${ctx}/repository/fgk?searchword=${searchword}";
+			
 			if(querytype=='news'){
 				$('#tt').tabs('select', 0);	
 			} else if(querytype=='docs'){
@@ -49,10 +48,11 @@
 			} else if(querytype=='fgk'){
 				$('#tt').tabs('select', 3);
 			}
+			
 			$('#news').attr("src",newssrc);
 			$('#docs').attr("src",docssrc);
 			$('#images').attr("src",imagessrc);
-			$('#laws').attr("src",fgksrc);		
+			$('#laws').attr("src",fgksrc);
 			
 			$('body').css({visibility: 'visible'});
 		});
